@@ -120,7 +120,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 
-
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -141,5 +140,8 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'MarketPlace API',
     'DESCRIPTION': 'Открытая API для покупки и продажи продуктов',
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,
+    },
+    'SERVE_INCLUDE_SCHEMA': True,
 }
