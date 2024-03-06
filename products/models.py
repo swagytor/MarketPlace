@@ -42,6 +42,7 @@ class Product(models.Model):
         super().save(*args, **kwargs)
         if not self.slug:
             self.slug = slugify(self.title)
+            self.save()
 
         if self.img:
             img_name = self.img.name.split('/')[-1]

@@ -21,8 +21,8 @@ class UserCart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
     quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
 
-    # def __str__(self):
-    #     return f'{self.cart.user.username} {self.product.title}'
+    def __str__(self):
+        return f'{self.product.title} ({self.quantity} шт.)'
 
     class Meta:
         verbose_name = 'Продукт в корзине'
