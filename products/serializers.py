@@ -11,8 +11,15 @@ class CategorySerializer(serializers.ModelSerializer):
         read_only_fields = ('slug',)
 
 
+class SubCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'title', 'slug', 'category')
+        read_only_fields = ('slug',)
+
+
 class CategoryListSerializer(serializers.ModelSerializer):
-    subcategories = serializers.StringRelatedField(many=True)
+    subcategories = SubCategorySerializer(many=True)
 
     class Meta:
         model = Category

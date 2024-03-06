@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework_simplejwt',
 
-    'users',
+    'users.apps.UsersConfig',
 
-    'products',
+    'products.apps.ProductsConfig',
+    "cart.apps.CartConfig"
 ]
 
 MIDDLEWARE = [
@@ -140,8 +141,5 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'MarketPlace API',
     'DESCRIPTION': 'Открытая API для покупки и продажи продуктов',
     'VERSION': '1.0.0',
-    'SWAGGER_UI_SETTINGS': {
-        'deepLinking': True,
-    },
     'SERVE_INCLUDE_SCHEMA': True,
 }
