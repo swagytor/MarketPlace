@@ -28,7 +28,9 @@ class CategoryListSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    _category = serializers.SlugRelatedField(slug_field='title', read_only=True, source='category')
+
     class Meta:
         model = Product
         fields = '__all__'
-        read_only_fields = ('slug',)
+        read_only_fields = ('slug', 'medium_img', 'small_img')
