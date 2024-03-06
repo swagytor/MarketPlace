@@ -4,9 +4,11 @@ from PIL import Image
 from django.shortcuts import render
 from pytils.translit import slugify
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 
 from MarketPlace.settings import BASE_DIR
 from products.models import Category, Product
+from products.paginations import StandardPagination
 from products.serializers import CategorySerializer, ProductSerializer, CategoryListSerializer
 
 
@@ -14,6 +16,7 @@ from products.serializers import CategorySerializer, ProductSerializer, Category
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    pagination_class = StandardPagination
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -24,3 +27,4 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    pagination_class = StandardPagination
